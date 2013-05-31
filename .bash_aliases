@@ -30,3 +30,5 @@ function snapshot() {
 	g stash save $flag "snapshot ("`date +"%Y-%m-%d - %T"`")" $@
 	g stash apply "stash@{0}"
 }
+
+alias snapshots="g stash list --grep snapshot"
