@@ -47,9 +47,17 @@ alias load-snapshot='g stash apply "stash@{$1}"'
 # | Navigation |
 # +------------+
 
-alias wk='pushd /c/work'
-alias .com='pushd /c/work/sevendigital-com/'
-alias js='pushd /c/work/sevendigital-com/src/SevenDigital.Com.Web/Static/js'
+function cdToWorkDir() {
+	if [ $win ]; then
+		cd /c/work/;
+	else
+		cd ~/work/;
+	fi
+}
+
+alias wk=cdToWorkDir
+alias .com='cd /c/work/sevendigital-com/'
+alias js='cd /c/work/sevendigital-com/src/SevenDigital.Com.Web/Static/js'
 
 # +------+
 # | Apps |
