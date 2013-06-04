@@ -71,6 +71,6 @@ function openFileBrowser() {
 	fi
 }
 
+alias ,=openFileBrowser
 #alias sln=...?
-alias .=openFileBrowser
 alias st='"/c/Program Files/Sublime Text 2/sublime_text.exe"'
