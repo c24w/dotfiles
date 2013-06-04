@@ -33,7 +33,7 @@ function snapshot() {
 			Tracked ) flag=''; break;;
 			' + Untracked' ) flag='-u'; break;;
 			'  + Ignored' ) flag='-a'; break;;
-		esac
+			esac
 	done
 	g stash save $flag 'snapshot ('`date +'%Y-%m-%d - %T'`')' $@
 	g stash apply 'stash@{0}'
