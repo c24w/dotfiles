@@ -17,8 +17,8 @@ alias gco='git checkout'
 alias gpl='g pull'
 alias gpsh='g push'
 
-alias gl='git log'
-alias gln='git log -n'
+alias gl='git log --oneline'
+alias gln='gl -n'
 
 alias gd='g diff'
 
