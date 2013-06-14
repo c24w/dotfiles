@@ -33,7 +33,7 @@ function snapshot() {
 			Tracked ) flag=''; break;;
 			' + Untracked' ) flag='-u'; break;;
 			'  + Ignored' ) flag='-a'; break;;
-			esac
+		esac
 	done
 	g stash save $flag 'snapshot ('`date +'%Y-%m-%d - %T'`')' $@
 	g stash apply 'stash@{0}'
@@ -47,17 +47,9 @@ alias load-snapshot='g stash apply "stash@{$1}"'
 # | Navigation |
 # +------------+
 
-function cdToWorkDir() {
-	if [ $win ]; then
-		cd /c/work/;
-	else
-		cd ~/work/;
-	fi
-}
-
-alias wk=cdToWorkDir
-alias .com='cd /c/work/sevendigital-com/'
-alias js='cd /c/work/sevendigital-com/src/SevenDigital.Com.Web/Static/js'
+alias wk='pushd /c/work'
+alias .com='pushd /c/work/sevendigital-com/'
+alias js='pushd /c/work/sevendigital-com/src/SevenDigital.Com.Web/Static/js'
 
 # +------+
 # | Apps |
@@ -71,6 +63,14 @@ function openFileBrowser() {
 	fi
 }
 
+function openSln() {
+	if [ $win ]; then
+		cmd /q //c "for %f in (*.sln) do echo Opening %f & start %f";
+	else
+		echo "You're in Linux you twat."
+	fi
+}
+
+alias sln=openSln
 alias ,=openFileBrowser
-#alias sln=...?
 alias st='"/c/Program Files/Sublime Text 2/sublime_text.exe"'
