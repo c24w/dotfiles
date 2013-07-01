@@ -15,6 +15,7 @@ alias gcm='gc -m'
 alias gco='git checkout'
 
 alias gpl='g pull'
+alias gplr='gpl --rebase'
 alias gpsh='g push'
 
 alias gl='git log --oneline'
