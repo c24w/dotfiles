@@ -72,6 +72,10 @@ function openSln() {
 	fi
 }
 
+function openSublimeText() {
+	'/c/Program Files/Sublime Text 2/sublime_text.exe' $1 &
+}
+
 alias sln=openSln
 alias ,=openFileBrowser
-alias st='"/c/Program Files/Sublime Text 2/sublime_text.exe"'
+alias st=openSublimeText
