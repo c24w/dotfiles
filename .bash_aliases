@@ -11,6 +11,7 @@ alias gr='git reset'
 
 alias gc='g commit'
 alias gcm='gc -m'
+alias gcu='gr --soft HEAD^'
 
 alias gco='git checkout'
 
