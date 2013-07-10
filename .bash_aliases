@@ -2,7 +2,7 @@ if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
 alias g=git
 
-alias gs='g status'
+alias gs='g status -s'
 
 alias ga='git add'
 alias gaa='ga -A && gs'
