@@ -24,6 +24,8 @@ alias gln='gl -n'
 
 alias gd='g diff'
 
+alias gcp='g cherry-pick'
+
 # +-----------+
 # | Snapshots |
 # +-----------+
