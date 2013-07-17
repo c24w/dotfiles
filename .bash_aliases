@@ -12,8 +12,12 @@ alias gr='git reset'
 alias gc='g commit'
 alias gcm='gc -m'
 alias gcu='gr --soft HEAD^'
+alias gca='gc --amend'
+alias gcaq='gc --amend -C HEAD'
 
 alias gco='git checkout'
+
+alias gf='g fetch -q && (g status | grep "Your branch")'
 
 alias gpl='g pull'
 alias gplr='gpl --rebase'
