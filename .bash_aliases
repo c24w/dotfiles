@@ -17,7 +17,15 @@ alias gcaq='gc --amend -C HEAD'
 
 alias gco='git checkout'
 
-alias gf='g fetch -q && (g status | grep "Your branch")'
+function fetchAndLog() {
+	g fetch -q
+	g status | grep 'Your branch'
+	currentBranch=$(git symbolic-ref HEAD --short)
+	numNewCommits=$(g rev-list HEAD...origin/$currentBranch --count)
+	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
+}
+
+alias gf=fetchAndLog
 
 alias gpl='g pull'
 alias gplr='gpl --rebase'
@@ -29,6 +37,7 @@ alias gln='gl -n'
 alias gd='g diff'
 
 alias gcp='g cherry-pick'
+
 
 # +-----------+
 # | Snapshots |
