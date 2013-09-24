@@ -4,20 +4,28 @@ alias g=git
 
 alias gs='g status -s'
 
-alias ga='git add'
+alias ga='g add'
 alias gaa='ga -A && gs'
 
-alias gr='git reset'
+alias gr='g reset'
 
 alias gc='g commit'
 alias gcm='gc -m'
 alias gcu='gr --soft HEAD^'
 alias gca='gc --amend'
-alias gcaq='gc --amend -C HEAD'
+alias gcaq='gca -C HEAD'
 
 alias gco='git checkout'
 
-function fetchAndLog() {
+alias gpl='g pull'
+alias gplr='gpl --rebase'
+alias gpsh='g push'
+
+alias gl='g log --oneline'
+alias gln='gl -n'
+
+# fetch and log difference in commits
+function gf() {
 	g fetch -q
 	g status | grep 'Your branch'
 	currentBranch=$(git symbolic-ref HEAD --short)
@@ -25,19 +33,11 @@ function fetchAndLog() {
 	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
 }
 
-alias gf=fetchAndLog
-
-alias gpl='g pull'
-alias gplr='gpl --rebase'
-alias gpsh='g push'
-
-alias gl='git log --oneline'
-alias gln='gl -n'
-
 alias gd='g diff'
 
 alias gcp='g cherry-pick'
 
+alias vim='powershell -File ~/.vim/gvim-shared.ps1'
 
 # +-----------+
 # | Snapshots |
@@ -58,15 +58,16 @@ function snapshot() {
 
 alias snapshots='g stash list --grep snapshot'
 
-alias load-snapshot='g stash apply "stash@{$1}"'
+function load-snapshot() {
+	g stash apply stash@{$1}
+}
 
 # +------------+
 # | Navigation |
 # +------------+
 
-alias wk='pushd /c/work'
-alias .com='pushd /c/work/sevendigital-com/'
-alias js='pushd /c/work/sevendigital-com/src/SevenDigital.Com.Web/Static/js'
+alias wk='cd /c/work'
+alias .com='cd /c/work/sevendigital-com/'
 
 # +------+
 # | Apps |
@@ -80,7 +81,9 @@ function openFileBrowser() {
 	fi
 }
 
-function openSln() {
+alias ,=openFileBrowser
+
+function sln() {
 	if [ $win ]; then
 		cmd /q //c "for %f in (*.sln) do echo Opening %f & start %f";
 	else
@@ -88,10 +91,6 @@ function openSln() {
 	fi
 }
 
-function openSublimeText() {
-	'/c/Program Files/Sublime Text 2/sublime_text.exe' $1 &
+function st() {
+	'/c/Program Files/Sublime Text 2/sublime_text.exe' $1
 }
-
-alias sln=openSln
-alias ,=openFileBrowser
-alias st=openSublimeText
