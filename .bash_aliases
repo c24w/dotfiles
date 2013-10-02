@@ -27,7 +27,7 @@ alias gln='gl -n'
 # fetch and log difference in commits
 function gf() {
 	g fetch -q
-	g status | grep 'Your branch'
+	g status | grep 'Your branch' | cut -c 3- # cut from N'th byte, character or field, to end of line (to remove leading #)
 	currentBranch=$(git symbolic-ref HEAD --short)
 	numNewCommits=$(g rev-list HEAD...origin/$currentBranch --count)
 	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
