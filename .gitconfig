@@ -1,0 +1,13 @@
+[user]
+	name = Chris Watson
+	email = chris.watson@7digital.com
+[push]
+	default = upstream
+[core]
+	autocrlf = true
+	whitespace = cr-at-eol
+	editor = gvim
+[rerere]
+	enabled = 1
+[help]
+	autocorrect = 1
