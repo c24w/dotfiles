@@ -25,7 +25,7 @@ alias gl='g log --oneline'
 alias gln='gl -n'
 
 # fetch and log difference in commits
-function gf() {
+function gf {
 	g fetch -q
 	g status | grep 'Your branch' | cut -c 3- # cut from N'th byte, character or field, to end of line (to remove leading #)
 	currentBranch=$(git symbolic-ref HEAD --short)
@@ -37,13 +37,23 @@ alias gd='g diff'
 
 alias gcp='g cherry-pick'
 
+function set-branch-merged {
+	currentBranch=$(git symbolic-ref HEAD --short)
+	g push -q origin $currentBranch:merged/$currentBranch
+	g branch -r --color | grep $currentBranch # show renamed remote branch
+	echo delete original remote branch using
+	echo -e '\t gpsh origin :'$currentBranch
+	echo delete original local branch using
+	echo -e '\t g branch -d '$currentBranch
+}
+
 alias vim='powershell -File ~/.vim/gvim-shared.ps1'
 
 # +-----------+
 # | Snapshots |
 # +-----------+
 
-function snapshot() {
+function snapshot {
 	flag=''
 	select type in 'Tracked' ' + Untracked' '  + Ignored'; do
 		case $type in
@@ -58,7 +68,7 @@ function snapshot() {
 
 alias snapshots='g stash list --grep snapshot'
 
-function load-snapshot() {
+function load-snapshot {
 	g stash apply stash@{$1}
 }
 
@@ -73,7 +83,7 @@ alias .com='cd /c/work/sevendigital-com/'
 # | Apps |
 # +------+
 
-function openFileBrowser() {
+function openFileBrowser {
 	if [ $win ]; then
 		explorer .;
 	else
@@ -83,7 +93,7 @@ function openFileBrowser() {
 
 alias ,=openFileBrowser
 
-function sln() {
+function sln {
 	if [ $win ]; then
 		cmd /q //c "for %f in (*.sln) do echo Opening %f & start %f";
 	else
@@ -91,6 +101,6 @@ function sln() {
 	fi
 }
 
-function st() {
+function st {
 	'/c/Program Files/Sublime Text 2/sublime_text.exe' $1
 }
