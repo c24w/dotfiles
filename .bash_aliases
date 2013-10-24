@@ -41,10 +41,10 @@ function set-branch-merged {
 	currentBranch=$(git symbolic-ref HEAD --short)
 	g push -q origin $currentBranch:merged/$currentBranch
 	g branch -r --color | grep $currentBranch # show renamed remote branch
-	echo delete original remote branch using
-	echo -e '\t gpsh origin :'$currentBranch
-	echo delete original local branch using
-	echo -e '\t g branch -d '$currentBranch
+	echo -e '\ndelete original remote branch:'
+	echo -e 'gpsh origin :'$currentBranch'\n'
+	echo -e 'delete original local branch:'
+	echo -e 'g branch -d '$currentBranch
 }
 
 alias vim='powershell -File ~/.vim/gvim-shared.ps1'

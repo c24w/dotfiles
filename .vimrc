@@ -1,6 +1,7 @@
 set nocompatible               " stops vim from behaving in a strongly vi-compatible way
 filetype off
 
+set nu
 set tabstop=4
 set shiftwidth=4
 
