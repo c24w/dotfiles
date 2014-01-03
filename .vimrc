@@ -21,6 +21,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'mustache/vim-mustache-handlebars'
 
 syntax on
 colorscheme solarized
@@ -29,7 +30,8 @@ highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
 set guicursor=n-v:block-Cursor
 set guicursor+=i-c:ver25-iCursor
-set backupdir=~/.backups
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 set hidden
 
