@@ -47,7 +47,14 @@ function set-branch-merged {
 	echo -e 'g branch -d '$currentBranch
 }
 
-alias vim='powershell -File ~/.vim/gvim-shared.ps1'
+realVim=$(which vim);
+function vim {
+	if [ $win ]; then
+		powershell -File ~/.vim/gvim-shared.ps1;
+	else
+		$realVim $@;
+	fi
+}
 
 # +-----------+
 # | Snapshots |
