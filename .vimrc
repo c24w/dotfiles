@@ -1,4 +1,5 @@
 set nocompatible               " stops vim from behaving in a strongly vi-compatible way
+set cursorline
 filetype off
 
 set nu
