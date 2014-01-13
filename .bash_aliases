@@ -50,7 +50,7 @@ function set-branch-merged {
 realVim=$(which vim);
 function vim {
 	if [ $win ]; then
-		powershell -File ~/.vim/gvim-shared.ps1;
+		powershell -File ~/.vim/gvim-shared.ps1 $@;
 	else
 		$realVim $@;
 	fi
