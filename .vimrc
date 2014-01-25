@@ -2,6 +2,8 @@ scriptencoding utf-8
 set nocompatible	"Stops vim from behaving in a strongly vi-compatible way
 set cursorline
 filetype off
+set guioptions-=m  "Remove menu bar
+set guioptions-=T  "Remove toolbar
 
 set nu
 set tabstop=4
@@ -9,7 +11,10 @@ set shiftwidth=4
 
 set colorcolumn=80
 
-au GUIEnter * simalt ~x		" start maximised
+"Run maximized in GUI
+if has("gui_running")
+	au GUIEnter * simalt ~x
+endif
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -52,7 +57,7 @@ noremap <F2> :NERDTreeToggle<CR>
 set backspace=indent,eol,start
 
 set list
-set listchars=tab:→\ ,eol:¬
+set listchars=tab:➝\ ,eol:¬
 
 let g:ctrlp_root_markers = ['.ctrlp_root']
 
