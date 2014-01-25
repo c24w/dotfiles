@@ -30,6 +30,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
 
+if $COLORTERM == 'gnome-terminal'
+	"Use 256 colours
+	set t_Co=256
+endif
+
 syntax on
 set background=dark
 colorscheme solarized
