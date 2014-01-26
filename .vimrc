@@ -43,6 +43,8 @@ highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
 set guicursor=n-v:block-Cursor
 set guicursor+=i-c:ver25-iCursor
+highlight SpecialKey ctermbg=none
+
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
