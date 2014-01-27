@@ -64,7 +64,7 @@ noremap <F2> :NERDTreeToggle<CR>
 set backspace=indent,eol,start
 
 set list
-set listchars=tab:â\ ,eol:Â¬
+set listchars=tab:·\ ,eol:¬
 
 let g:ctrlp_root_markers = ['.ctrlp_root']
 
