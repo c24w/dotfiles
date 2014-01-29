@@ -1,4 +1,6 @@
 scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 set nocompatible	"Stops vim from behaving in a strongly vi-compatible way
 set cursorline
 filetype off
@@ -64,7 +66,7 @@ noremap <F2> :NERDTreeToggle<CR>
 set backspace=indent,eol,start
 
 set list
-set listchars=tab:·\ ,eol:¬
+set listchars=tab:â†’\ ,eol:Â¬
 
 let g:ctrlp_root_markers = ['.ctrlp_root']
 
