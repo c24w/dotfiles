@@ -40,7 +40,7 @@ endif
 syntax on
 set background=dark
 colorscheme solarized
-set guifont=Lucida_Console:h10:cANSI
+set guifont=Inconsolata:h12:cANSI
 highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
 set guicursor=n-v:block-Cursor
