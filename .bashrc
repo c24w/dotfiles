@@ -4,6 +4,9 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi;
 
+if [ -f ~/sensitive.sh ]; then
+	source ~/sensitive.sh
+fi;
 
 if [ $win ]; then :;
 else
