@@ -12,7 +12,7 @@ alias gaa='ga -A && gs'
 
 alias gr='g reset'
 
-alias gc='g commit'
+alias gc='g commit -v'
 alias gcm='gc -m'
 alias gcu='gr --soft HEAD^'
 alias gca='gc --amend'
@@ -25,7 +25,7 @@ alias gplr='gpl --rebase'
 alias gpsh='g push'
 
 alias gl='g log --oneline'
-alias gln='gl -n'
+alias gln='g --no-pager log -n'
 
 function git-branch-name {
 	echo $(git symbolic-ref HEAD --short)
@@ -40,7 +40,7 @@ function gf {
 	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
 }
 
-alias gd='g diff'
+alias gd='g --no-pager diff'
 
 alias gcp='g cherry-pick'
 
