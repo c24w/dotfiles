@@ -31,6 +31,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'mileszs/ack.vim'
 
 if $COLORTERM == 'gnome-terminal'
 	"Use 256 colours
@@ -66,7 +67,7 @@ noremap <F2> :NERDTreeToggle<CR>
 set backspace=indent,eol,start
 
 set list
-set listchars=tab:→\ ,eol:¬
+set listchars=tab:›\ ,eol:¬
 
 let g:ctrlp_root_markers = ['.ctrlp_root']
 
