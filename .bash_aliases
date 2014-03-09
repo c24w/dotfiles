@@ -40,7 +40,7 @@ function gf {
 	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
 }
 
-alias gd='g --no-pager diff'
+alias gd='g diff'
 
 alias gcp='g cherry-pick'
 
