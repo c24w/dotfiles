@@ -6,6 +6,7 @@ set cursorline
 filetype off
 set guioptions-=m  "Remove menu bar
 set guioptions-=T  "Remove toolbar
+set fileformats=unix,dos
 
 set nu
 set tabstop=4
