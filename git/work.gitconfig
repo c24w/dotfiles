@@ -5,7 +5,6 @@
 	default = upstream
 [core]
 	autocrlf = false
-	whitespace = cr-at-eol
 	editor = vim
 [rerere]
 	enabled = 1
