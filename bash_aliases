@@ -5,7 +5,8 @@ alias l='ls -Al'
 
 alias g=git
 
-alias gs='g status -s'
+alias gst='g status'
+alias gs='gst -s'
 
 alias ga='g add'
 alias gaa='ga -A && gs'
