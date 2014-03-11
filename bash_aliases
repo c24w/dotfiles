@@ -1,7 +1,7 @@
 if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
 alias ls='ls --color=auto'
-alias l='ls -al'
+alias l='ls -Al'
 
 alias g=git
 
