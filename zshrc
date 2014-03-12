@@ -52,9 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
-if [ -f ~/sensitive.sh ]; then
-	source ~/sensitive.sh
-fi;
+if [ -f ~/sensitive.sh ]; then source ~/sensitive.sh; fi;
 
 # Set and overwrite default aliases
 source ~/dotfiles/bash_aliases

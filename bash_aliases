@@ -32,13 +32,12 @@ function git-branch-name {
 	echo $(git symbolic-ref HEAD --short)
 }
 
-# fetch and log difference in commits
+# Fetch and log difference in commits
 function gf {
 	g fetch -q
-	g status | grep 'Your branch' | cut -c 3- # cut from N'th byte, character or field, to end of line (to remove leading #)
-	currentBranch=$(git-branch-name)
-	numNewCommits=$(g rev-list HEAD...origin/$currentBranch --count)
-	gl HEAD...origin/$currentBranch --oneline -n $numNewCommits
+	gst | grep --color=never 'Your branch'
+	numNewCommits=$(g rev-list HEAD...origin/$(git-branch-name) --count)
+	gln $numNewCommits --oneline HEAD...origin/$(git-branch-name)
 }
 
 alias gd='g diff'
@@ -48,7 +47,7 @@ alias gcp='g cherry-pick'
 function set-branch-merged {
 	currentBranch=$(git symbolic-ref HEAD --short)
 	g push -q origin $currentBranch:merged/$currentBranch
-	g branch -r --color | grep $currentBranch # show renamed remote branch
+	g branch -r --color | grep $currentBranch # Show renamed remote branch
 	echo -e '\ndelete original remote branch:'
 	echo -e 'gpsh origin :'$currentBranch'\n'
 	echo -e 'delete original local branch:'
@@ -64,9 +63,8 @@ function vim {
 	fi
 }
 
-# +-----------+
-# | Snapshots |
-# +-----------+
+# Snapshots
+############
 
 function snapshot {
 	flag=''
@@ -87,16 +85,14 @@ function load-snapshot {
 	g stash apply stash@{$1}
 }
 
-# +------------+
-# | Navigation |
-# +------------+
+# Navigation
+#############
 
 alias wk='cd /c/work'
 alias .com='cd /c/work/sevendigital-com/'
 
-# +------+
-# | Apps |
-# +------+
+# Apps
+#######
 
 function openFileBrowser {
 	if [ $win ]; then
@@ -114,8 +110,4 @@ function sln {
 	else
 		echo "You're in Linux you twat."
 	fi
-}
-
-function st {
-	'/c/Program Files/Sublime Text 2/sublime_text.exe' $1
 }
