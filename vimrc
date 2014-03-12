@@ -75,6 +75,7 @@ let g:ctrlp_root_markers = ['.ctrlp_root']
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'mileszs/ack.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 
 " Bindings
