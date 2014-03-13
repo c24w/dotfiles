@@ -28,9 +28,7 @@ alias gpsh='g push'
 alias gl='g log --oneline'
 alias gln='g --no-pager log -n'
 
-function git-branch-name {
-	echo $(git symbolic-ref HEAD --short)
-}
+function git-branch-name { echo $(git symbolic-ref HEAD --short) }
 
 # Fetch and log difference in commits
 function gf {
