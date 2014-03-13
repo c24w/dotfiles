@@ -50,12 +50,17 @@ ZSH_THEME="avit"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+#####################
+#
 if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
 if [ -f ~/sensitive.sh ]; then source ~/sensitive.sh; fi;
 
+source ~/dotfiles/bashrc
+
 # Set and overwrite default aliases
 source ~/dotfiles/bash_aliases
+
 
 export PATH="/home/chris/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/chris/.rvm/bin:/home/chris/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
