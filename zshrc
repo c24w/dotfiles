@@ -61,6 +61,8 @@ source ~/dotfiles/bashrc
 # Set and overwrite default aliases
 source ~/dotfiles/bash_aliases
 
+#Disable Ctrl-S terminal 'freeze' escape character
+stty -ixon
 
 export PATH="/home/chris/.gem/ruby/2.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/chris/.rvm/bin:/home/chris/bin"
 # export MANPATH="/usr/local/man:$MANPATH"

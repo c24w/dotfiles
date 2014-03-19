@@ -8,5 +8,6 @@ fi;
 
 if [ $win ]; then :;
 else
+	export TERM=screen-256color
 	eval `dircolors ~/dotfiles/dircolors/dircolors.256dark`;
 fi;
