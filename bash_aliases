@@ -28,7 +28,13 @@ alias gpsh='g push'
 alias gl='g log --oneline'
 alias gln='g --no-pager log -n'
 
-function git-branch-name { echo $(git symbolic-ref HEAD --short) }
+alias gd='g diff'
+
+alias gcp='g cherry-pick'
+
+function git-branch-name {
+	echo $(git symbolic-ref HEAD --short)
+}
 
 # Fetch and log difference in commits
 function gf {
@@ -37,10 +43,6 @@ function gf {
 	numNewCommits=$(g rev-list HEAD...origin/$(git-branch-name) --count)
 	gln $numNewCommits --oneline HEAD...origin/$(git-branch-name)
 }
-
-alias gd='g diff'
-
-alias gcp='g cherry-pick'
 
 function set-branch-merged {
 	currentBranch=$(git symbolic-ref HEAD --short)
