@@ -1,3 +1,17 @@
+" File reading
+""""""""""""""""
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+
+set fileformats=unix,dos
 set nocompatible "Stop vim from behaving in a strongly vi-compatible way
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
@@ -7,9 +21,9 @@ set hlsearch
 filetype off
 
 set list "Show whitespace
-set listchars=tab:›\ ,eol:¬
-
 set backspace=indent,eol,start "Allow backspacing over these chars
+
+set listchars=tab:›\ ,eol:¬
 
 " Indentation
 """""""""""""
@@ -19,14 +33,6 @@ set tabstop=4 "Tab width
 set shiftwidth=4 "Re-indent width
 
 
-" File reading
-""""""""""""""""
-scriptencoding utf-8
-set encoding=utf-8
-set fileencoding=utf-8
-set fileformats=unix,dos
-
-
 " Appearance
 """"""""""""""
 syntax on
@@ -34,11 +40,15 @@ set number "Line numbers
 set cursorline
 set colorcolumn=80
 set background=dark
-colorscheme solarized
 
 highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
 highlight SpecialKey ctermbg=none
+
+if $COLORTERM == 'gnome-terminal'
+	"Use 256 colours
+	set t_Co=256
+endif
 
 if has("gui_running")
 	au GUIEnter * simalt ~x "Maximise
@@ -47,11 +57,6 @@ if has("gui_running")
 	set guicursor=n-v:block-Cursor
 	set guicursor+=i-c:ver25-iCursor
 	set guifont=Inconsolata:h12:cANSI
-endif
-
-if $COLORTERM == 'gnome-terminal'
-	"Use 256 colours
-	set t_Co=256
 endif
 
 
@@ -67,6 +72,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
+colorscheme solarized
+
 Bundle 'pangloss/vim-javascript'
 
 Bundle 'kien/ctrlp.vim'
