@@ -43,7 +43,7 @@ set background=dark
 
 highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
-highlight SpecialKey ctermbg=none
+"highlight SpecialKey ctermbg=none "No tab background colour
 
 if $COLORTERM == 'gnome-terminal'
 	"Use 256 colours
@@ -52,8 +52,8 @@ endif
 
 if has("gui_running")
 	au GUIEnter * simalt ~x "Maximise
-	set guioptions-=m  "Remove menu bar
-	set guioptions-=T  "Remove toolbar
+	set guioptions-=m "Remove menu bar
+	set guioptions-=T "Remove toolbar
 	set guicursor=n-v:block-Cursor
 	set guicursor+=i-c:ver25-iCursor
 	set guifont=Inconsolata:h12:cANSI
@@ -78,6 +78,9 @@ Bundle 'pangloss/vim-javascript'
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '/build/',
+\ }
 
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
@@ -88,7 +91,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Bindings
 """"""""""""
 noremap <F2> :NERDTreeToggle<CR>
-"
+"Clear line with Ctrl-Space
+nmap <C-@> 0D
+
 "Clear search higlighting
 nmap <SPACE> <SPACE>:noh<CR>
 

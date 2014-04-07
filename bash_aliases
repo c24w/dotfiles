@@ -96,9 +96,9 @@ alias .com='cd /c/work/sevendigital-com/'
 
 function openFileBrowser {
 	if [ $win ]; then
-		explorer .;
+		explorer . &;
 	else
-		nautilus .;
+		nautilus . &;
 	fi
 }
 
