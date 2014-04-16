@@ -39,9 +39,8 @@ function git-branch-name {
 # Fetch and log difference in commits
 function gf {
 	g fetch -q
-	gst | grep --color=never 'Your branch'
-	numNewCommits=$(g rev-list HEAD...origin/$(git-branch-name) --count)
-	gln $numNewCommits --oneline HEAD...origin/$(git-branch-name)
+	gst | grep 'Your branch'
+	gl --oneline HEAD..origin/$(git-branch-name)
 }
 
 function set-branch-merged {
