@@ -93,10 +93,10 @@ Bundle 'christoomey/vim-tmux-navigator'
 noremap <F2> :NERDTreeToggle<CR>
 "Clear line with Ctrl-Space
 nmap <C-@> 0D
-
 "Clear search higlighting
 nmap <SPACE> <SPACE>:noh<CR>
-
+"Save with W
+command W w
 
 set foldmethod=syntax
 "Unfold everything by default
