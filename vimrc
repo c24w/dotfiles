@@ -38,7 +38,12 @@ set shiftwidth=4 "Re-indent width
 syntax on
 set number "Line numbers
 set cursorline
-set colorcolumn=80
+if expand("%:t:r") == "COMMIT_EDITMSG"
+	" Show at git commit recommended length
+	set colorcolumn=51
+else
+	set colorcolumn=80
+endif
 set background=dark
 
 highlight Cursor guifg=black guibg=grey
