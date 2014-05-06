@@ -29,6 +29,7 @@ alias gl='g log --oneline'
 alias gln='g --no-pager log -n'
 
 alias gd='g diff'
+alias gdc='gd --cached'
 
 alias gcp='g cherry-pick'
 
