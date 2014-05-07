@@ -36,6 +36,7 @@ set shiftwidth=4 "Re-indent width
 " Appearance
 """"""""""""""
 syntax on
+au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
 set number "Line numbers
 set cursorline
 if expand("%:t:r") == "COMMIT_EDITMSG"
