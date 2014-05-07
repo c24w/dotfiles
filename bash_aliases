@@ -44,16 +44,6 @@ function gf {
 	gl --oneline HEAD..origin/$(git-branch-name)
 }
 
-function set-branch-merged {
-	currentBranch=$(git symbolic-ref HEAD --short)
-	g push -q origin $currentBranch:merged/$currentBranch
-	g branch -r --color | grep $currentBranch # Show renamed remote branch
-	echo -e '\ndelete original remote branch:'
-	echo -e 'gpsh origin :'$currentBranch'\n'
-	echo -e 'delete original local branch:'
-	echo -e 'g branch -d '$currentBranch
-}
-
 realVim=$(which vim);
 function vim {
 	if [ $win ]; then
@@ -90,6 +80,7 @@ function load-snapshot {
 
 alias wk='cd /c/work'
 alias .com='cd /c/work/sevendigital-com/'
+alias cd-='cd -'
 
 # Apps
 #######
