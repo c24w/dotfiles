@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 #
 if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
-if [ -f ~/sensitive.sh ]; then source ~/sensitive.sh; fi;
+if [ -f ~/env.sh ]; then source ~/env.sh; fi;
 
 source ~/dotfiles/bashrc
 
