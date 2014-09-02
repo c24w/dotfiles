@@ -89,9 +89,9 @@ alias cd-='cd -'
 
 function openFileBrowser {
 	if [ $win ]; then
-		explorer . &
+		explorer "$@" &
 	else
-		nautilus . &
+		nautilus "$@" &>/dev/null &
 	fi
 }
 
