@@ -89,6 +89,7 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '/build/',
 \ }
 
+Bundle 'vim-scripts/BufOnly.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'mileszs/ack.vim'
