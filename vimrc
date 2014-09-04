@@ -122,6 +122,8 @@ nmap <C-@> 0D
 nmap <SPACE> <SPACE>:noh<CR>
 "Save with W
 command W w
+"Prevent NT going really wide and don't accidentally db NT
+cnoreabbrev bd NERDTreeClose<CR>:bd<CR>
 
 set foldmethod=syntax
 "Unfold everything by default
