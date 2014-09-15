@@ -125,6 +125,8 @@ nmap <SPACE> <SPACE>:noh<CR>
 command W w
 "Prevent NT going really wide and don't accidentally db NT
 cnoreabbrev bd NERDTreeClose<CR>:bd<CR>
+"Don't auto-open first ack result
+cabb Ack Ack!
 
 set foldmethod=syntax
 "Unfold everything by default
