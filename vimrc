@@ -124,7 +124,7 @@ nmap <SPACE> <SPACE>:noh<CR>
 "Save with W
 command W w
 "Prevent NT going really wide and don't accidentally db NT
-cnoreabbrev bd NERDTreeClose<CR>:bd<CR>
+cabb bd NERDTreeClose<CR>:bd<CR>
 "Don't auto-open first ack result
 cabb Ack Ack!
 
