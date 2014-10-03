@@ -82,6 +82,7 @@ Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 
 Bundle 'pangloss/vim-javascript'
+Bundle 'milkypostman/vim-togglelist'
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
