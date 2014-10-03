@@ -122,6 +122,7 @@ noremap <F2> :NERDTreeToggle<CR>
 nmap <C-@> 0D
 "Clear search higlighting
 nmap <SPACE> <SPACE>:noh<CR>
+map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
 "Prevent NT going really wide and don't accidentally db NT
