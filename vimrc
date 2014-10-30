@@ -117,6 +117,23 @@ let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
 " Bindings
 """"""""""""
+function! BD()
+	let ntIsFocus = exists("b:NERDTreeType")
+	if ntIsFocus
+		"Don't accidentally bd NT
+		NERDTreeClose
+	endif
+
+	"Don't lose splits
+	b# "Go to last used buffer
+	bd # "Close previous buffer (buffer before bp)
+
+	if ntIsFocus
+		"Restore NT
+		NERDTreeFocus
+	endif
+endfunction
+
 noremap <F2> :NERDTreeToggle<CR>
 "Clear line with Ctrl-Space
 nmap <C-@> 0D
@@ -125,8 +142,7 @@ nmap <SPACE> <SPACE>:noh<CR>
 map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
-"Prevent NT going really wide and don't accidentally db NT
-cabb bd NERDTreeClose<CR>:bd<CR>
+map <Leader>bd :call BD()<CR>
 "Don't auto-open first ack result
 cabb Ack Ack!
 
