@@ -143,8 +143,8 @@ map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
 map <Leader>bd :call BD()<CR>
-"Don't auto-open first ack result
-cabb Ack Ack!
+"Ack shortcut to not auto-open first ack result
+map <Leader>a :Ack!<Space>
 
 set foldmethod=syntax
 "Unfold everything by default
