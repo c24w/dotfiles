@@ -93,7 +93,7 @@ let g:ctrlp_custom_ignore = {
 Bundle 'vim-scripts/BufOnly.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'bling/vim-airline'
 set laststatus=2
@@ -143,8 +143,8 @@ map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
 map <Leader>bd :call BD()<CR>
-"Ack shortcut to not auto-open first ack result
-map <Leader>a :Ack!<Space>
+"Ag shortcut to not auto-open first ack result
+map <Leader>a :Ag!<Space>
 
 set foldmethod=syntax
 "Unfold everything by default
