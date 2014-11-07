@@ -73,16 +73,25 @@ set rtp+=~/.vim/bundle/vundle/
 
 call vundle#rc()
 
+Bundle 'vim-scripts/BufOnly.vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'rking/ag.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'pangloss/vim-javascript'
+Bundle 'milkypostman/vim-togglelist'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
-
-Bundle 'pangloss/vim-javascript'
-Bundle 'milkypostman/vim-togglelist'
+ 
+Bundle 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_jump = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
@@ -90,11 +99,6 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '/build/',
 \ }
 
-Bundle 'vim-scripts/BufOnly.vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'rking/ag.vim'
-Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'bling/vim-airline'
 set laststatus=2
 let g:airline_theme = 'solarized'
@@ -149,3 +153,7 @@ map <Leader>a :Ag!<Space>
 set foldmethod=syntax
 "Unfold everything by default
 au BufRead * normal zR
+
+"Use local vimrcs
+set exrc
+set secure
