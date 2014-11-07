@@ -130,7 +130,14 @@ function! BD()
 
 	"Don't lose splits
 	b# "Go to last used buffer
-	bd # "Close previous buffer (buffer before bp)
+	bd # "Close previous buffer (buffer before b#)
+	try 
+		buffer
+	catch
+		"Last used buffer we've ended up in has previously been bd'd (hidden)
+		"bd again to hide it and go to a visible buffer
+		bd
+	endtry
 
 	if ntIsFocus
 		"Restore NT
