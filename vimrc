@@ -156,6 +156,8 @@ command W w
 map <Leader>bd :call BD()<CR>
 "Ag shortcut to not auto-open first ack result
 map <Leader>a :Ag!<Space>
+"Toggle paste/nopaste
+set pastetoggle=<Leader>p
 
 set foldmethod=syntax
 "Unfold everything by default
