@@ -77,13 +77,6 @@ function load-snapshot {
 	g stash apply stash@{$1}
 }
 
-# Navigation
-#############
-
-alias wk='cd /c/work'
-alias .com='cd /c/work/sevendigital-com/'
-alias cd-='cd -'
-
 # Apps
 #######
 
