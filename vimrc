@@ -69,37 +69,39 @@ endif
 
 " Plugins
 """""""""""
-set rtp+=~/.vim/bundle/vundle/
-
-call vundle#rc()
-
-Bundle 'vim-scripts/BufOnly.vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'rking/ag.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'pangloss/vim-javascript'
-Bundle 'milkypostman/vim-togglelist'
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'rking/ag.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'pangloss/vim-javascript'
+Plugin 'milkypostman/vim-togglelist'
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
 colorscheme solarized
+
+Plugin 'vim-scripts/HTML-AutoCloseTag'
+au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
  
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '/build/',
 \ }
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 set laststatus=2
 let g:airline_theme = 'solarized'
 let g:airline_enable_branch = 1
@@ -118,6 +120,8 @@ let g:airline#extensions#tabline#right_sep = '⮂'
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
+call vundle#end()
+filetype plugin indent on
 
 " Bindings
 """"""""""""
@@ -154,7 +158,7 @@ map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
 map <Leader>bd :call BD()<CR>
-"Ag shortcut to not auto-open first ack result
+"Ag shortcut to not auto-open first result
 map <Leader>a :Ag!<Space>
 "Toggle paste/nopaste
 set pastetoggle=<Leader>p
