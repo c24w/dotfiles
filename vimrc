@@ -160,6 +160,8 @@ command W w
 map <Leader>bd :call BD()<CR>
 "Ag shortcut to not auto-open first result
 map <Leader>a :Ag!<Space>
+"Show current file in NT
+map <Leader>f :NERDTreeFind<CR>
 "Toggle paste/nopaste
 set pastetoggle=<Leader>p
 
