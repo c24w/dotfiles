@@ -168,9 +168,10 @@ map <Leader>f :NERDTreeFind<CR>
 set pastetoggle=<Leader>p
 
 set foldmethod=syntax
-"Unfold everything by default
-au BufRead * normal zR
 
 "Use local vimrcs
 set exrc
 set secure
+
+"Unfold everything by default
+au BufRead * normal zR
