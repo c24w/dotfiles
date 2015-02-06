@@ -40,13 +40,15 @@ syntax on
 au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
 set number "Line numbers
 set cursorline
+set background=dark
+
 if expand("%:t:r") == "COMMIT_EDITMSG"
 	" Show at git commit recommended length
-	set colorcolumn=51
+	set colorcolumn=50
+	set textwidth=50
 else
 	set colorcolumn=80
 endif
-set background=dark
 
 highlight Cursor guifg=black guibg=grey
 highlight iCursor guifg=black guibg=grey
