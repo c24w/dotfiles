@@ -30,6 +30,12 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/dotfiles/temp
+cd ~/dotfiles/temp
+./install.sh -s dark -p Default
+cd ..
+rm -rf ./temp
+
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Open vim without vimrc to avoid errors, source vimrc and install plugins
@@ -37,3 +43,5 @@ vim -u NONE +'source ~/.vimrc' +'PluginInstall' +'qa'
 
 mkdir ~/.vim/colors
 ln -s ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors
+
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
