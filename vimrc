@@ -106,7 +106,7 @@ let g:syntastic_aggregate_errors = 1
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '/build/',
+\ 'dir':  '\v[\/](node_modules|\.git)$',
 \ }
 
 Plugin 'bling/vim-airline'
