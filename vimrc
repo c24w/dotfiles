@@ -17,6 +17,12 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set hidden "Keep buffers open when opening new buffers
 set incsearch "Search as typed
+"Case-insensitive search, unless mixed case is used
+set ignorecase
+set smartcase
+"Apply smartcase to * and #
+:nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
+:nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 set hlsearch
 filetype off
 
