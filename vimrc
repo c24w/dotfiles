@@ -186,6 +186,20 @@ map <Leader>a :Ag!<Space>
 map <Leader>f :NERDTreeFind<CR>
 "Toggle paste/nopaste
 set pastetoggle=<Leader>p
+"Select pasted text
+noremap gp `[v`]
+
+" Search for visual selection with * and #
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 set foldmethod=syntax
 
