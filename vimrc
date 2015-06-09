@@ -108,19 +108,33 @@ let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\v[\/](node_modules|\.git)$',
 \ }
+"Use ag or git for autocompletion
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 Plugin 'bling/vim-airline'
 set laststatus=2
 let g:airline_theme = 'solarized'
-let g:airline_enable_branch = 1
-let g:airline_enable_syntastic = 1
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.readonly = '⭤'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.linenr = '⭡'
 let g:airline_branch_prefix = '⭠'
 let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#close_symbol = '×'
 let g:airline#extensions#tabline#left_sep = '⮀'
