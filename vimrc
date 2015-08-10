@@ -82,8 +82,10 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+Plugin 'suan/vim-instant-markdown'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -93,6 +95,7 @@ Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-repeat'
 Plugin 'altercation/vim-colors-solarized'
 colorscheme solarized
 
