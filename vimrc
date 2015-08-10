@@ -31,6 +31,8 @@ set backspace=indent,eol,start "Allow backspacing over these chars
 
 set listchars=tab:›\ ,eol:¬
 
+set wildmenu "Tab through files with :e
+
 
 " Indentation
 """""""""""""
