@@ -51,9 +51,10 @@ set cursorline
 set background=dark
 
 if expand("%:t:r") == "COMMIT_EDITMSG"
-	" Show at git commit recommended length
-	set colorcolumn=50
-	set textwidth=50
+	"Show commit message and summary line length suggestions
+	set colorcolumn=50,72
+	"Auto-wrap summary to suggested length
+	set textwidth=72
 else
 	set colorcolumn=80
 endif
