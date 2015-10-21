@@ -82,9 +82,9 @@ function load-snapshot {
 
 function openFileBrowser {
 	if [ $win ]; then
-		explorer "$@" &
+		explorer . &
 	else
-		nautilus "$@" &>/dev/null &
+		nautilus "$PWD" &>/dev/null &
 	fi
 }
 
