@@ -31,7 +31,7 @@ alias gln='g --no-pager log -n'
 alias gd='g diff'
 alias gdf='gd --no-prefix -U1000'
 alias gdc='gd --cached'
-alias gdcf='gdx --cached'
+alias gdcf='gdf --cached'
 
 alias gcp='g cherry-pick'
 
