@@ -33,6 +33,11 @@ alias gdf='gd --no-prefix -U1000'
 alias gdc='gd --cached'
 alias gdcf='gdf --cached'
 
+function gdr { # git diff remote
+	g fetch -q
+	gd $(git-branch-name)..origin/$(git-branch-name)
+}
+
 alias gcp='g cherry-pick'
 
 function git-branch-name {
