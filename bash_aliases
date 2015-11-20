@@ -48,7 +48,7 @@ function git-branch-name {
 function gf {
 	g fetch -q
 	gst | grep 'Your branch'
-	gl --oneline HEAD..origin/$(git-branch-name)
+	g log $(git-branch-name)..origin/$(git-branch-name)
 }
 
 realVim=$(which vim);
