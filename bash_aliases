@@ -33,22 +33,17 @@ alias gdf='gd --no-prefix -U1000'
 alias gdc='gd --cached'
 alias gdcf='gdf --cached'
 
-function gdr { # git diff remote
-	g fetch -q
-	gd $(git-branch-name)..origin/$(git-branch-name)
-}
-
 alias gcp='g cherry-pick'
 
 function git-branch-name {
 	echo $(git symbolic-ref HEAD --short)
 }
 
-# Fetch and log difference in commits
-function gf {
+function gdr { # git diff remote
 	g fetch -q
 	gst | grep 'Your branch'
 	g log $(git-branch-name)..origin/$(git-branch-name)
+	gd $(git-branch-name)..origin/$(git-branch-name)
 }
 
 realVim=$(which vim);
