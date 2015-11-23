@@ -42,8 +42,8 @@ function git-branch-name {
 function gdr { # git diff remote
 	g fetch -q
 	gst | grep 'Your branch'
-	g log $(git-branch-name)..origin/$(git-branch-name)
-	gd $(git-branch-name)..origin/$(git-branch-name)
+	g log origin/$(git-branch-name)..$(git-branch-name)
+	gd origin/$(git-branch-name)..$(git-branch-name)
 }
 
 realVim=$(which vim);
