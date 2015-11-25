@@ -39,10 +39,14 @@ function git-branch-name {
 	echo $(git symbolic-ref HEAD --short)
 }
 
-function gdr { # git diff remote
+function gf {
 	g fetch -q
 	gst | grep 'Your branch'
 	g log @{u}..
+}
+
+function gdr { # git diff remote
+	gf
 	gd @{u}..
 }
 
