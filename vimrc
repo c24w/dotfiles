@@ -210,7 +210,10 @@ vnoremap <silent> # :<C-U>
 " Macro to convert function to fat arrow
 let @f = 'dt(f{i=> '
 " Command to convert all functions to fat arrows
-command ES6ify :%s/function\_s\+(\([^)]*\))\_s\+{/(\1) => {/g | %s/(\([a-z]\+\)) =>/\1 =>/g
+" [fns passed as params] | [anon fns] | [strip superfluous parens: (xyz) =>]
+command ES6ify :%s/\([,(]\_s*\)function[^(]\+\(([^)]*)\)/\1\2 =>/g
+            \ | %s/function\_s\+\(([^)]*)\)/\1 =>/g
+            \ | %s/(\([a-z]\+\)) =>/\1 =>/g
 
 set foldmethod=syntax
 
