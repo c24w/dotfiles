@@ -207,6 +207,11 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Macro to convert function to fat arrow
+let @f = 'dt(f{i=> '
+" Command to convert all functions to fat arrows
+command ES6ify :%s/function\_s\+(\([^)]*\))\_s\+{/(\1) => {/g | %s/(\([a-z]\+\)) =>/\1 =>/g
+
 set foldmethod=syntax
 
 "Use local vimrcs
