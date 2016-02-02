@@ -212,9 +212,9 @@ let @f = 'dt(f{i=> '
 
 function! ES6ify()
   " Convert applicable functions to () =>
-  :%s/\([,(=]\_s*\)function[^(]*\(([^)]*)\)/\1\2 =>/ge
+  :%s/\(\%(return \)\|[:,(=]\_s*\)function[^(]*\(([^)]*)\)/\1\2 =>/ge
   " Strip superfluous fat arrow function parentheses
-  :%s/(\([a-z]\+\)) =>/\1 =>/ge
+  :%s/(\([a-z0-9$_]\+\)) =>/\1 =>/gei
 endfunction
 command ES6ify :call ES6ify()
 
