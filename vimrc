@@ -50,7 +50,7 @@ set number "Line numbers
 set cursorline
 set background=dark
 
-if expand("%:t:r") == "COMMIT_EDITMSG"
+if expand('%:t:r') == 'COMMIT_EDITMSG'
 	"Show commit message and summary line length suggestions
 	set colorcolumn=50,72
 	"Auto-wrap summary to suggested length
@@ -154,7 +154,7 @@ filetype plugin indent on
 " Bindings
 """"""""""""
 function! BD()
-	let ntIsFocus = exists("b:NERDTreeType")
+	let ntIsFocus = @% == 'NERD_tree_1'
 	if ntIsFocus
 		"Don't accidentally bd NT
 		NERDTreeClose
