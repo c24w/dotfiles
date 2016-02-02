@@ -210,11 +210,9 @@ vnoremap <silent> # :<C-U>
 " Macro to convert function to fat arrow
 let @f = 'dt(f{i=> '
 
-function ES6ify()
-  " (Named) functions passed as params to () =>
-  :%s/\([,(]\_s*\)function[^(]\+\(([^)]*)\)/\1\2 =>/ge
-  " Anonmymous functions to () =>
-  :%s/function\_s\+\(([^)]*)\)/\1 =>/ge
+function! ES6ify()
+  " Convert applicable functions to () =>
+  :%s/\([,(=]\_s*\)function[^(]*\(([^)]*)\)/\1\2 =>/ge
   " Strip superfluous fat arrow function parentheses
   :%s/(\([a-z]\+\)) =>/\1 =>/ge
 endfunction
