@@ -126,7 +126,8 @@ else
     \ }
 endif
 
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
 let g:airline_theme = 'solarized'
 let g:airline_left_sep = '⮀'
