@@ -208,16 +208,17 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" Macro to convert function to fat arrow
-let @f = 'dt(f{i=> '
+let s:ES6ifyFnsPattern='\(\%(return \)\|[:,(=]\_s*\)function[^(]*\(([^)]*)\)'
+let s:ES6ifyTidyPattern='(\([a-z0-9$_]\+\)) =>'
 
-function! ES6ify()
+function! ES6ify(scope)
   " Convert applicable functions to () =>
-  :%s/\(\%(return \)\|[:,(=]\_s*\)function[^(]*\(([^)]*)\)/\1\2 =>/ge
+  :execute a:scope . 'substitute/' . s:ES6ifyFnsPattern . '/\1\2 =>/ge'
   " Strip superfluous fat arrow function parentheses
-  :%s/(\([a-z0-9$_]\+\)) =>/\1 =>/gei
+  :execute a:scope . 'substitute/' . s:ES6ifyTidyPattern . '/\1 =>/gei'
 endfunction
-command ES6ify :call ES6ify()
+command ES6ifyLine :call ES6ify('')
+command ES6ify :call ES6ify('%')
 
 set foldmethod=syntax
 
