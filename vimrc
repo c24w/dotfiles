@@ -155,10 +155,15 @@ filetype plugin indent on
 " Bindings
 """"""""""""
 function! BD()
-	let ntIsFocus = @% == 'NERD_tree_1'
-	if ntIsFocus
-		"Don't accidentally bd NT
+	let restoreStateCmds = []
+	"Don't accidentally delete certain buffers
+	if @% == 'NERD_tree_1'
 		NERDTreeClose
+		:call add(restoreStateCmds, 'NERDTreeFocus')
+	endif
+	if &buftype == 'quickfix'
+		ccl
+		:call add(restoreStateCmds, 'copen')
 	endif
 
 	"Don't lose splits
@@ -172,10 +177,9 @@ function! BD()
 		bd
 	endtry
 
-	if ntIsFocus
-		"Restore NT
-		NERDTreeFocus
-	endif
+	for cmd in restoreStateCmds
+		execute(cmd)
+	endfor
 endfunction
 
 noremap <F2> :NERDTreeToggle<CR>
