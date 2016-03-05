@@ -38,8 +38,9 @@ set wildmenu "Tab through files with :e
 """""""""""""
 filetype plugin indent on
 set autoindent
-set tabstop=4 "Tab width
-set shiftwidth=4 "Re-indent width
+set expandtab "Spaces
+set tabstop=2 "Tab width
+set shiftwidth=2 "Re-indent width
 
 
 " Appearance
@@ -51,12 +52,12 @@ set cursorline
 set background=dark
 
 if expand('%:t:r') == 'COMMIT_EDITMSG'
-	"Show commit message and summary line length suggestions
-	set colorcolumn=50,72
-	"Auto-wrap summary to suggested length
-	set textwidth=72
+  "Show commit message and summary line length suggestions
+  set colorcolumn=50,72
+  "Auto-wrap summary to suggested length
+  set textwidth=72
 else
-	set colorcolumn=80
+  set colorcolumn=80
 endif
 
 highlight Cursor guifg=black guibg=grey
@@ -64,17 +65,17 @@ highlight iCursor guifg=black guibg=grey
 "highlight SpecialKey ctermbg=none "No tab background colour
 
 if $COLORTERM == 'gnome-terminal'
-	"Use 256 colours
-	set t_Co=256
+  "Use 256 colours
+  set t_Co=256
 endif
 
 if has("gui_running")
-	au GUIEnter * simalt ~x "Maximise
-	set guioptions-=m "Remove menu bar
-	set guioptions-=T "Remove toolbar
-	set guicursor=n-v:block-Cursor
-	set guicursor+=i-c:ver25-iCursor
-	set guifont=Inconsolata:h12:cANSI
+  au GUIEnter * simalt ~x "Maximise
+  set guioptions-=m "Remove menu bar
+  set guioptions-=T "Remove toolbar
+  set guicursor=n-v:block-Cursor
+  set guicursor+=i-c:ver25-iCursor
+  set guifont=Inconsolata:h12:cANSI
 endif
 
 
@@ -102,7 +103,7 @@ colorscheme solarized
 
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
- 
+
 Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
@@ -112,18 +113,18 @@ let g:syntastic_aggregate_errors = 1
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/](node_modules|\.git)$',
-\ }
+  \ 'dir':  '\v[\/](node_modules|\.git)$',
+  \ }
 "Use ag or git for autocompletion
 let g:ctrlp_use_caching = 0
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
   let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+        \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+        \ }
 endif
 
 Plugin 'vim-airline/vim-airline'
@@ -155,31 +156,31 @@ filetype plugin indent on
 " Bindings
 """"""""""""
 function! BD()
-	let restoreStateCmds = []
-	"Don't accidentally delete certain buffers
-	if @% == 'NERD_tree_1'
-		NERDTreeClose
-		:call add(restoreStateCmds, 'NERDTreeFocus')
-	endif
-	if &buftype == 'quickfix'
-		ccl
-		:call add(restoreStateCmds, 'copen')
-	endif
+  let restoreStateCmds = []
+  "Don't accidentally delete certain buffers
+  if @% == 'NERD_tree_1'
+    NERDTreeClose
+    :call add(restoreStateCmds, 'NERDTreeFocus')
+  endif
+  if &buftype == 'quickfix'
+    ccl
+    :call add(restoreStateCmds, 'copen')
+  endif
 
-	"Don't lose splits
-	b# "Go to last used buffer
-	bd # "Close previous buffer (buffer before b#)
-	try 
-		buffer
-	catch
-		"Last used buffer we've ended up in has previously been bd'd (hidden)
-		"bd again to hide it and go to a visible buffer
-		bd
-	endtry
+  "Don't lose splits
+  b# "Go to last used buffer
+  bd # "Close previous buffer (buffer before b#)
+  try 
+    buffer
+  catch
+    "Last used buffer we've ended up in has previously been bd'd (hidden)
+    "bd again to hide it and go to a visible buffer
+    bd
+  endtry
 
-	for cmd in restoreStateCmds
-		execute(cmd)
-	endfor
+  for cmd in restoreStateCmds
+    execute(cmd)
+  endfor
 endfunction
 
 noremap <F2> :NERDTreeToggle<CR>
