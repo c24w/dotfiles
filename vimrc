@@ -104,6 +104,8 @@ colorscheme solarized
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 
+Plugin 'bronson/vim-visual-star-search'
+
 Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
@@ -200,18 +202,6 @@ map <Leader>f :NERDTreeFind<CR>
 set pastetoggle=<Leader>p
 "Select pasted text
 noremap gp `[v`]
-
-" Search for visual selection with * and #
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 let s:ES6ifyFnsPattern='\(\%(return \)\|[:,(=]\_s*\)function[^(]*\(([^)]*)\)'
 let s:ES6ifyTidyPattern='(\([a-z0-9$_]\+\)) =>'
