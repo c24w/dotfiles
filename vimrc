@@ -84,7 +84,7 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'shime/vim-livedown'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
