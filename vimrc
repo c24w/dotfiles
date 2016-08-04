@@ -120,22 +120,24 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jscs', 'jshint', 'eslint']
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
+" Ignores only work when not using a user_command
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](node_modules|\.git)$',
+  \ 'file': '\v\.(png,jpg)$'
   \ }
 "Use ag or git for autocompletion
 let g:ctrlp_use_caching = 0
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
+" if executable('ag')
+"   set grepprg=ag\ --nogroup\ --nocolor\ --ignore
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
   let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-        \ }
-endif
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+" endif
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
