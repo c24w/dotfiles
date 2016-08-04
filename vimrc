@@ -47,6 +47,7 @@ set shiftwidth=2 "Re-indent width
 """"""""""""""
 syntax on
 au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
 set number "Line numbers
 set cursorline
 set background=dark
@@ -83,6 +84,8 @@ endif
 """""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'shime/vim-livedown'
 Plugin 'vim-scripts/BufOnly.vim'
@@ -100,6 +103,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'altercation/vim-colors-solarized'
 colorscheme solarized
+
+Plugin 'leafgarland/typescript-vim'
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
