@@ -84,6 +84,7 @@ endif
 """""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'gmarik/Vundle.vim'
@@ -102,7 +103,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'altercation/vim-colors-solarized'
-colorscheme solarized
 
 Plugin 'leafgarland/typescript-vim'
 let g:tsuquyomi_disable_quickfix = 1
@@ -164,6 +164,8 @@ let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
 call vundle#end()
 filetype plugin indent on
+
+colorscheme solarized "Doesn't work in windows if inside vundle calls
 
 " Bindings
 """"""""""""
