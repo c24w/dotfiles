@@ -36,18 +36,38 @@ alias gdcf='gdf --cached'
 alias gcp='g cherry-pick'
 
 function git-branch-name {
-	echo $(git symbolic-ref HEAD --short)
+  echo $(git symbolic-ref HEAD --short)
 }
 
 function gf {
-	g fetch -q
-	gst | grep 'Your branch'
-	g log @{u}..
+  g fetch -q
+
+  # http://stackoverflow.com/a/3278427/706561
+  local UPSTREAM=${1:-'@{u}'}
+  local LOCAL=$(git rev-parse @)
+  local REMOTE=$(git rev-parse "$UPSTREAM")
+  local BASE=$(git merge-base @ "$UPSTREAM")
+
+    if [ $LOCAL = $REMOTE ]; then
+      echo 'Up-to-date'
+    elif [ $LOCAL = $BASE ]; then
+      echo 'Behind remote'
+      gl $LOCAL..$UPSTREAM
+    elif [ $REMOTE = $BASE ]; then
+      echo 'Ahead of remote'
+      gl $UPSTREAM..$LOCAL
+    else
+      echo -e 'Diverged\n--------'
+      echo 'Remote:'
+      gl $LOCAL..$UPSTREAM
+      echo 'Local:'
+      gl $UPSTREAM..$LOCAL
+    fi
 }
 
 function gdr { # git diff remote
-	gf
-	gd @{u}..
+  gf
+  gd @{u}..
 }
 
 realVim=$(which vim);
@@ -63,41 +83,41 @@ function vim {
 ############
 
 function snapshot {
-	flag=''
-	select type in 'Tracked' ' + Untracked' '  + Ignored'; do
-		case $type in
-			Tracked ) flag=''; break;;
-			' + Untracked' ) flag='-u'; break;;
-			'  + Ignored' ) flag='-a'; break;;
-		esac
-	done
-	g stash save $flag 'snapshot ('`date +'%Y-%m-%d - %T'`')' $@
-	g stash apply 'stash@{0}'
+  flag=''
+  select type in 'Tracked' ' + Untracked' '  + Ignored'; do
+    case $type in
+      Tracked ) flag=''; break;;
+      ' + Untracked' ) flag='-u'; break;;
+      '  + Ignored' ) flag='-a'; break;;
+    esac
+  done
+  g stash save $flag 'snapshot ('`date +'%Y-%m-%d - %T'`')' $@
+  g stash apply 'stash@{0}'
 }
 
 alias snapshots='g stash list --grep snapshot'
 
 function load-snapshot {
-	g stash apply stash@{$1}
+  g stash apply stash@{$1}
 }
 
 # Apps
 #######
 
 function openFileBrowser {
-	if [ $win ]; then
-		explorer . &
-	else
-		nautilus "$PWD" &>/dev/null &
-	fi
+  if [ $win ]; then
+    explorer . &
+  else
+    nautilus "$PWD" &>/dev/null &
+  fi
 }
 
 alias ,=openFileBrowser
 
 function sln {
-	if [ $win ]; then
-		cmd /q //c "for %f in (*.sln) do echo Opening %f & start %f";
-	else
-		echo "You're in Linux you twat."
-	fi
+  if [ $win ]; then
+    cmd /q //c "for %f in (*.sln) do echo Opening %f & start %f";
+  else
+    echo "You're in Linux you twat."
+  fi
 }
