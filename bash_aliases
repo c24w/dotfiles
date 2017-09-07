@@ -39,6 +39,8 @@ function git-branch-name {
   echo $(git symbolic-ref HEAD --short)
 }
 
+alias gcp='g cherry-pick'
+
 function gf {
   g fetch -q
 
