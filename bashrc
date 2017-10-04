@@ -1,4 +1,4 @@
-if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
+if [[ $(uname) == 'MINGW'* ]]; then win=1; fi;
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
