@@ -207,7 +207,7 @@ map <Leader>bo :BufOnly<CR>
 command W w
 map <Leader>bd :call BD()<CR>
 "Ag shortcut to not auto-open first result
-map <Leader>a :Ag!<Space>
+map <Leader>a :Ag!<Space>''<left>
 "Show current file in NT
 map <Leader>f :NERDTreeFind<CR>
 "Toggle paste/nopaste
