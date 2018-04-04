@@ -26,9 +26,9 @@ set smartcase
 set hlsearch
 filetype off
 
-set list "Show whitespace
 set backspace=indent,eol,start "Allow backspacing over these chars
 
+set list "Show whitespace
 set listchars=tab:›\ ,eol:¬
 
 set wildmenu "Tab through files with :e
@@ -103,6 +103,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'ntpeters/vim-better-whitespace'
 
 Plugin 'leafgarland/typescript-vim'
 let g:tsuquyomi_disable_quickfix = 1
