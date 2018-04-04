@@ -85,6 +85,7 @@ endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'gmarik/vundle'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'gmarik/Vundle.vim'
@@ -93,17 +94,18 @@ Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pangloss/vim-javascript'
 Plugin 'milkypostman/vim-togglelist'
-Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-repeat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ntpeters/vim-better-whitespace'
+
+Plugin 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep --smart-case'
 
 Plugin 'leafgarland/typescript-vim'
 let g:tsuquyomi_disable_quickfix = 1
@@ -207,8 +209,8 @@ map <Leader>bo :BufOnly<CR>
 "Save with W
 command W w
 map <Leader>bd :call BD()<CR>
-"Ag shortcut to not auto-open first result
-map <Leader>a :Ag!<Space>''<left>
+"Ack shortcut to not auto-open first result
+map <Leader>a :Ack!<Space>''<left>
 "Show current file in NT
 map <Leader>f :NERDTreeFind<CR>
 "Toggle paste/nopaste
