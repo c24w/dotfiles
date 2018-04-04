@@ -22,7 +22,7 @@ alias gcaq='gca -C HEAD'
 alias gco='git checkout'
 
 alias gpl='g pull'
-alias gplr='gpl --rebase'
+alias gplr='gpl --rebase --autostash'
 alias gpsh='g push'
 
 alias gl='g log --oneline'
