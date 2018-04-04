@@ -235,6 +235,9 @@ command ES6ify :call ES6ify('%')
 "Don't automatically insert comment chars near other comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+"No ESC delays (https://www.johnhawthorn.com/2012/09/vi-escape-delays)
+set timeoutlen=1000 ttimeoutlen=0
+
 "Use local vimrcs
 set exrc
 set secure
