@@ -233,6 +233,8 @@ command ES6ifyLine :call ES6ify('')
 command ES6ify :call ES6ify('%')
 
 set foldmethod=syntax
+"Don't automatically insert comment chars near other comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "Use local vimrcs
 set exrc
