@@ -217,10 +217,16 @@ map <Leader>f :NERDTreeFind<CR>
 set pastetoggle=<Leader>p
 "Select pasted text
 noremap gp `[v`]
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-onoremap  <buffer> <silent> k gk
-onoremap  <buffer> <silent> j gj
+"'Visual' directional movement
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+onoremap <buffer> <silent> k gk
+onoremap <buffer> <silent> j gj
+"Not on my watch
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 let s:ES6ifyFnsPattern='\(\%(return \)\|[:,(=]\_s*\)function[^(]*\(([^)]*)\)'
 let s:ES6ifyTidyPattern='(\([a-z0-9$_]\+\)) =>'
