@@ -72,15 +72,6 @@ function gdr { # git diff remote
   gd @{u}..
 }
 
-realVim=$(which vim);
-function vim {
-	if [ $win ]; then
-		powershell -executionpolicy bypass -file ~/.vim/gvim-shared.ps1 $@;
-	else
-		$realVim $@;
-	fi
-}
-
 # Snapshots
 ############
 
