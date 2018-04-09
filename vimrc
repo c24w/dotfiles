@@ -243,8 +243,8 @@ function! ES6ify(scope)
   " Strip superfluous fat arrow function parentheses
   :execute a:scope . 'substitute/' . s:ES6ifyTidyPattern . '/\1 =>/gei'
 endfunction
-command ES6ifyLine :call ES6ify('')
-command ES6ify :call ES6ify('%')
+command! ES6ifyLine :call ES6ify('')
+command! ES6ify :call ES6ify('%')
 
 "Don't automatically insert comment chars near other comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
