@@ -24,7 +24,6 @@ set smartcase
 :nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 :nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 set hlsearch
-filetype off
 
 set backspace=indent,eol,start "Allow backspacing over these chars
 
@@ -36,7 +35,6 @@ set wildmenu "Tab through files with :e
 
 " Indentation
 """""""""""""
-filetype plugin indent on
 set autoindent
 set expandtab "Spaces
 set tabstop=2 "Tab width
@@ -45,10 +43,9 @@ set shiftwidth=2 "Re-indent width
 
 " Appearance
 """"""""""""""
-syntax on
 au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
-set number "Line numbers
+set number
 set cursorline
 set background=dark
 
@@ -82,48 +79,54 @@ endif
 
 " Plugins
 """""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"Vim plug first-time setup
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'gmarik/vundle'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'shime/vim-livedown'
-Plugin 'vim-scripts/BufOnly.vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-commentary'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'pangloss/vim-javascript'
-Plugin 'milkypostman/vim-togglelist'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-repeat'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ntpeters/vim-better-whitespace'
+call plug#begin()
+Plug 'Shougo/vimproc.vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'shime/vim-livedown'
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'pangloss/vim-javascript'
+Plug 'milkypostman/vim-togglelist'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'ntpeters/vim-better-whitespace'
 
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
-Plugin 'leafgarland/typescript-vim'
+Plug 'junegunn/vim-emoji'
+set completefunc=emoji#complete
+set omnifunc=emoji#complete
+
+Plug 'leafgarland/typescript-vim'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plug 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 
-Plugin 'bronson/vim-visual-star-search'
+Plug 'bronson/vim-visual-star-search'
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jscs', 'jshint', 'eslint']
 
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
 " Ignores only work when not using a user_command
 let g:ctrlp_custom_ignore = {
@@ -142,8 +145,10 @@ let g:ctrlp_use_caching = 0
     \ }
 " endif
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 let g:airline_theme = 'solarized'
 let g:airline_left_sep = '⮀'
@@ -165,10 +170,11 @@ let g:airline#extensions#tabline#right_sep = '⮂'
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
-colorscheme solarized "Doesn't work in windows if inside vundle calls
+"Must come after plugins so the colour scheme is available
+"Silence errors so it won't block first-time plugin install with an error
+silent! colorscheme solarized
 
 " Bindings
 """"""""""""
@@ -187,7 +193,7 @@ function! BD()
   "Don't lose splits
   b# "Go to last used buffer
   bd # "Close previous buffer (buffer before b#)
-  try 
+  try
     buffer
   catch
     "Last used buffer we've ended up in has previously been bd'd (hidden)
