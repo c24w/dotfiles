@@ -24,11 +24,6 @@ nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 set hlsearch
 
-set backspace=indent,eol,start "Allow backspacing over these chars
-
-set list "Show whitespace
-set listchars=tab:›\ ,eol:¬
-
 set wildmenu "Tab through files with :e
 
 
@@ -38,42 +33,6 @@ set autoindent
 set expandtab "Spaces
 set tabstop=2 "Tab width
 set shiftwidth=2 "Re-indent width
-
-
-" Appearance
-""""""""""""""
-au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
-au BufNewFile,BufRead *.ts setlocal filetype=typescript
-set number
-set cursorline
-set background=dark
-
-if expand('%:t:r') == 'COMMIT_EDITMSG'
-  "Show commit message and summary line length suggestions
-  set colorcolumn=50,72
-  "Auto-wrap summary to suggested length
-  set textwidth=72
-else
-  set colorcolumn=80
-endif
-
-highlight Cursor guifg=black guibg=grey
-highlight iCursor guifg=black guibg=grey
-"highlight SpecialKey ctermbg=none "No tab background colour
-
-if $COLORTERM == 'gnome-terminal'
-  "Use 256 colours
-  set t_Co=256
-endif
-
-if has("gui_running")
-  au GUIEnter * simalt ~x "Maximise
-  set guioptions-=m "Remove menu bar
-  set guioptions-=T "Remove toolbar
-  set guicursor=n-v:block-Cursor
-  set guicursor+=i-c:ver25-iCursor
-  set guifont=Inconsolata:h12:cANSI
-endif
 
 
 " Plugins
@@ -86,6 +45,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 10
+"https://git.io/vxdyE
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
 Plug 'Shougo/vimproc.vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'shime/vim-livedown'
@@ -167,9 +133,52 @@ let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
 call plug#end()
 
-"Must come after plugins so the colour scheme is available
+
+" Appearance
+""""""""""""""
+au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+set number
+set cursorline
+set background=dark
+
+if expand('%:t:r') == 'COMMIT_EDITMSG'
+  "Show commit message and summary line length suggestions
+  set colorcolumn=50,72
+  "Auto-wrap summary to suggested length
+  set textwidth=72
+else
+  set colorcolumn=80
+endif
+
+highlight Cursor guifg=black guibg=grey
+highlight iCursor guifg=black guibg=grey
+
+set backspace=indent,eol,start "Allow backspacing over these chars
+
+if $COLORTERM == 'gnome-terminal'
+  "Use 256 colours
+  set t_Co=256
+endif
+
+if has("gui_running")
+  au GUIEnter * simalt ~x "Maximise
+  set guioptions-=m "Remove menu bar
+  set guioptions-=T "Remove toolbar
+  set guicursor=n-v:block-Cursor
+  set guicursor+=i-c:ver25-iCursor
+  set guifont=Inconsolata:h12:cANSI
+endif
+
 "Silence errors so it won't block first-time plugin install with an error
 silent! colorscheme solarized
+
+set list "Show whitespace
+set listchars=tab:┆\ ,eol:¬
+
+"Restyle tabs (etc)
+highlight SpecialKey ctermbg=none ctermfg=10 cterm=none
+
 
 " Bindings
 """"""""""""
