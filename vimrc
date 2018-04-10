@@ -220,10 +220,10 @@ set pastetoggle=<Leader>p
 "Select pasted text
 noremap gp `[v`]
 "'Visual' directional movement
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
-onoremap <buffer> <silent> k gk
-onoremap <buffer> <silent> j gj
+nnoremap <buffer> <silent> k gk
+nnoremap <buffer> <silent> j gj
+vnoremap <buffer> <silent> k gk
+vnoremap <buffer> <silent> j gj
 "Not on my watch
 noremap <Up> <NOP>
 noremap <Down> <NOP>
