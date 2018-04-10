@@ -106,10 +106,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
-Plug 'junegunn/vim-emoji'
-set completefunc=emoji#complete
-set omnifunc=emoji#complete
-
 Plug 'leafgarland/typescript-vim'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
