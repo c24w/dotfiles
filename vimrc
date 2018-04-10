@@ -10,7 +10,6 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-
 set fileformats=unix,dos
 set nocompatible "Stop vim from behaving in a strongly vi-compatible way
 set backupdir=~/.vim/.backup//
@@ -21,8 +20,8 @@ set incsearch "Search as typed
 set ignorecase
 set smartcase
 "Apply smartcase to * and #
-:nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
-:nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 set hlsearch
 
 set backspace=indent,eol,start "Allow backspacing over these chars
