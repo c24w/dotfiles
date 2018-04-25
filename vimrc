@@ -175,6 +175,8 @@ set listchars=tab:┆\ ,eol:¬
 "Restyle tabs (etc)
 highlight SpecialKey ctermbg=none ctermfg=10 cterm=none
 
+set scrolloff=1
+
 
 " Bindings
 """"""""""""
