@@ -58,7 +58,6 @@ Plug 'shime/vim-livedown'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'pangloss/vim-javascript'
 Plug 'milkypostman/vim-togglelist'
@@ -71,6 +70,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
+Plug 'mustache/vim-mustache-handlebars'
+au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
 
 Plug 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
@@ -133,8 +134,6 @@ call plug#end()
 
 " Appearance
 """"""""""""""
-au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
-au BufNewFile,BufRead *.ts setlocal filetype=typescript
 set number
 set cursorline
 set background=dark
