@@ -71,9 +71,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
-Plug 'leafgarland/typescript-vim'
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 Plug 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
