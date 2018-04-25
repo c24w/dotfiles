@@ -214,8 +214,10 @@ nmap <C-@> 0D
 "Clear search higlighting
 nmap <SPACE> <SPACE>:noh<CR>
 map <Leader>bo :BufOnly<CR>
-"Save with W
-command W w
+"Fat-fingers
+command! W w
+command! Q q
+command! Wq wq
 map <Leader>bd :call BD()<CR>
 "Ack shortcut to not auto-open first result
 map <Leader>a :Ack!<Space>''<left>
