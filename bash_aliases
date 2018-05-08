@@ -29,12 +29,11 @@ alias gl='g log --oneline'
 alias gln='g --no-pager log -n'
 
 alias gd='g diff'
-alias gdf='gd --no-prefix -U1000'
 alias gdc='gd --cached'
-alias gdcf='gdf --cached'
 
-function git-branch-name {
-  echo $(git symbolic-ref HEAD --short)
+function gdf {
+  local CONTEXT=$([ -z "$1"] && echo 1000 || $(wc -l $1))
+  gd -U$CONTEXT
 }
 
 alias gcp='g cherry-pick'
