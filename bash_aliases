@@ -17,7 +17,7 @@ alias gc='g commit -v'
 alias gcm='gc -m'
 alias gcu='gr --soft HEAD^'
 alias gca='gc --amend'
-alias gcaq='gca -C HEAD'
+alias gcaq='gca --no-edit'
 
 alias gco='git checkout'
 
