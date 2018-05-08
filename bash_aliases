@@ -33,8 +33,6 @@ alias gdf='gd --no-prefix -U1000'
 alias gdc='gd --cached'
 alias gdcf='gdf --cached'
 
-alias gcp='g cherry-pick'
-
 function git-branch-name {
   echo $(git symbolic-ref HEAD --short)
 }
