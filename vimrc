@@ -218,6 +218,7 @@ map <Leader>bo :BufOnly<CR>
 command! W w
 command! Q q
 command! Wq wq
+command! Qa qa
 map <Leader>bd :call BD()<CR>
 "Ack shortcut to not auto-open first result
 map <Leader>a :Ack!<Space>''<left>
