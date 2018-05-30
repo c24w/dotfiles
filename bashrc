@@ -1,8 +1,6 @@
 if [[ $(uname) == 'MINGW'* ]]; then win=1; fi;
 
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi;
+. ~/dotfiles/bash_aliases
 
 [ -f ~/sensitive.sh ] && source ~/sensitive.sh
 
