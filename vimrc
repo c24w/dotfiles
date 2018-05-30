@@ -1,3 +1,9 @@
+" Come on Windows
+if has('win32') || has('win64')
+  set runtimepath^=~/.vim
+  set runtimepath^=~/.vim/after
+endif
+
 " File reading
 """"""""""""""""
 if has("multi_byte")
@@ -39,8 +45,15 @@ set shiftwidth=2 "Re-indent width
 """""""""""
 "Vim plug first-time setup
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  if has('win32') || has('win64')
+    execute 'silent !curl -fkLo "'.$HOME.'\.vim\autoload\plug.vim" --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  else
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
+
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
