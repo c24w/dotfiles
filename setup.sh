@@ -37,3 +37,7 @@ cd ..
 rm -rf ./temp
 
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+mkdir -p ~/bin
+ln -s ~/dotfiles/node ~/bin/node
+ln -s ~/dotfiles/node ~/bin/npm
