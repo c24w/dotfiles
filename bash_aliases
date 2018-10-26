@@ -38,6 +38,14 @@ function gdf {
 
 alias gcp='g cherry-pick'
 
+function grb {
+  if [[ $# == 1 && "$1" =~ ^[0-9]+$ ]]; then
+    g rebase --autostash -i HEAD~$1
+  else
+    g rebase $@
+  fi
+}
+
 function gf {
   g fetch -q
 
