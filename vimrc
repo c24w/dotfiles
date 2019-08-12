@@ -45,6 +45,10 @@ set shiftwidth=2 "Re-indent width
 """""""""""
 "Vim plug first-time setup
 if empty(glob('~/.vim/autoload/plug.vim'))
+  if !executable('curl')
+    echom "Can't set up plugins without cURL!"
+    quit!
+  endif
 
   if has('win32') || has('win64')
     execute 'silent !curl -fkLo "'.$HOME.'\.vim\autoload\plug.vim" --create-dirs
