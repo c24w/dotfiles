@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eo pipefail
 ############################
 # https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
