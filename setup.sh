@@ -31,11 +31,13 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/dotfiles/temp
-cd ~/dotfiles/temp
-./install.sh -s dark -p Default
-cd ..
-rm -rf ./temp
+mkdir -p /tmp/dotfiles
+pushd /tmp/dotfiles
+git clone --depth 1 https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+pushd gnome-terminal-colors-solarized
+./install.sh -p $(gsettings get org.gnome.Terminal.ProfilesList list | tr -d "[]\',") -s dark --install-dircolors
+popd; popd
+rm -rf /tmp/dotfiles
 
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
