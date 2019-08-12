@@ -39,7 +39,7 @@ pushd gnome-terminal-colors-solarized
 popd; popd
 rm -rf /tmp/dotfiles
 
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone --depth 1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 mkdir -p ~/bin
 ln -s ~/dotfiles/node ~/bin/node
