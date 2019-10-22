@@ -44,10 +44,10 @@ SPACESHIP_PACKAGE_SHOW=false
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git)
+plugins=(vi-mode)
+SPACESHIP_VI_MODE_INSERT=ᴵ
+SPACESHIP_VI_MODE_NORMAL=ᴺ
+SPACESHIP_VI_MODE_COLOR=green
 
 source $ZSH/oh-my-zsh.sh
 
