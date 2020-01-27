@@ -51,6 +51,13 @@ SPACESHIP_VI_MODE_COLOR=green
 
 source $ZSH/oh-my-zsh.sh
 
+# Magic to persist vi mode between commands
+# https://unix.stackexchange.com/a/110877/37772
+accept-line() { prev_mode=$KEYMAP; zle .accept-line }
+zle-line-init() { zle -K ${prev_mode:-viins} }
+zle -N accept-line
+zle -N zle-line-init
+
 # User configuration
 #####################
 #
