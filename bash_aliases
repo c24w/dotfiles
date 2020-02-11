@@ -132,3 +132,10 @@ function AWS {
   fi
   AWS_ACCESS_KEY_ID=$id AWS_SECRET_ACCESS_KEY=$key "${@:2}"
 }
+
+function tmp {
+  dir="$(mktemp -d -t $(date -In).XXX)"
+  $SHELL -c "cd $dir; exec $SHELL"
+  read -kn 1 "cleanup?Remove $dir? [y/N] "
+  [[ "$cleanup" =~ [Yy] ]] && rm -r "$dir"
+}
