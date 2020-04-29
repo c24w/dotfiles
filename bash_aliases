@@ -137,5 +137,5 @@ function tmp {
   dir="$(mktemp -d -t $(date -In).XXX)"
   $SHELL -c "cd $dir; exec $SHELL"
   read -kn 1 "cleanup?Remove $dir? [y/N] "
-  [[ "$cleanup" =~ [Yy] ]] && rm -r "$dir"
+  [[ "$cleanup" =~ [Yy] ]] && rm -rf "$dir"
 }
