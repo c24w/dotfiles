@@ -150,6 +150,8 @@ highlight iCursor guifg=black guibg=grey
 
 set backspace=indent,eol,start "Allow backspacing over these chars
 
+set nofixendofline
+
 if $COLORTERM == 'gnome-terminal'
   "Use 256 colours
   set t_Co=256
