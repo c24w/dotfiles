@@ -96,9 +96,11 @@ au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
 Plug 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 
-" Show commit line length suggestions and auto-wrap at suggested length
+" Show commit line length suggestions; auto-wrap summary; and better highlight
+" message overflow https://stackoverflow.com/a/39827558/706561
 au FileType gitcommit ++once set colorcolumn=50,72
 au FileType gitcommit ++once set textwidth=72
+au FileType gitcommit hi gitcommitOverflow ctermfg=88
 
 Plug 'bronson/vim-visual-star-search'
 
