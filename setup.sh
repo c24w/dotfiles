@@ -39,8 +39,3 @@ popd; popd
 rm -rf /tmp/dotfiles
 
 git clone --depth 1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-
-mkdir -p ~/bin
-ln -s ~/dotfiles/node ~/bin/node
-ln -s ~/dotfiles/node ~/bin/nodejs
-ln -s ~/dotfiles/node ~/bin/npm
