@@ -39,7 +39,7 @@ SPACESHIP_PACKAGE_SHOW=false
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to show command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -50,6 +50,10 @@ SPACESHIP_VI_MODE_NORMAL=ᴺ
 SPACESHIP_VI_MODE_COLOR=green
 
 source $ZSH/oh-my-zsh.sh
+
+# Fix vi mode indicator not refreshing https://git.io/JtI1b
+function zle-keymap-select() { zle reset-prompt ; zle -R }
+zle -N zle-keymap-select
 
 # Magic to persist vi mode between commands
 # https://unix.stackexchange.com/a/110877/37772
