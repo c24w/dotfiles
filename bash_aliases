@@ -1,5 +1,7 @@
 if [[ $(uname) == 'MINGW32'* ]]; then win=1; fi;
 
+alias d-c=docker-compose
+
 alias ls='ls --color=auto'
 alias l='ls -Al'
 
