@@ -1,17 +1,34 @@
 [user]
 	name = Chris Watson
 	email = 710406+c24w@users.noreply.github.com
+
 [push]
 	default = upstream
+
 [core]
 	autocrlf = false
 	editor = vim
-	pager = less -XF
+	pager = delta
+
 [rerere]
 	enabled = 1
+
 [help]
 	autocorrect = 1
+
 [pull]
 	rebase = true
+
 [rebase]
 	autoStash = true
+
+[delta]
+  dark = true
+  hyperlinks = true
+  line-numbers = true
+  pager = less -XF
+  syntax-theme = Solarized (dark)
+  plus-style = syntax black
+  line-numbers-plus-style = green bold
+  line-numbers-minus-style = red dim
+  line-numbers-zero-style = dimgray
