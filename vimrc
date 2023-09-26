@@ -2,6 +2,9 @@
 if has('win32') || has('win64')
   set runtimepath^=~/.vim
   set runtimepath^=~/.vim/after
+  if has('gui_running')
+    set guifont=Inconsolata:h12:cANSI
+  endif
 endif
 
 " File reading
@@ -155,13 +158,13 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-if has("gui_running")
+if has('gui_running')
   au GUIEnter * simalt ~x "Maximise
   set guioptions-=m "Remove menu bar
   set guioptions-=T "Remove toolbar
   set guicursor=n-v:block-Cursor
   set guicursor+=i-c:ver25-iCursor
-  set guifont=Inconsolata:h12:cANSI
+  set guifont=Inconsolata\ 17
 endif
 
 "Silence errors so it won't block first-time plugin install with an error
