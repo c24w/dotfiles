@@ -1,26 +1,26 @@
 [user]
-	name = Chris Watson
-	email = 710406+c24w@users.noreply.github.com
+  name = Chris Watson
+  email = 710406+c24w@users.noreply.github.com
 
 [push]
-	default = upstream
+  default = upstream
 
 [core]
-	autocrlf = false
-	editor = vim
-	pager = delta
+  autocrlf = false
+  editor = vim
+  pager = delta
 
 [rerere]
-	enabled = 1
+  enabled = 1
 
 [help]
-	autocorrect = 1
+  autocorrect = 1
 
 [pull]
-	rebase = true
+  rebase = true
 
 [rebase]
-	autoStash = true
+  autoStash = true
 
 [delta]
   dark = true
@@ -32,3 +32,6 @@
   line-numbers-plus-style = green bold
   line-numbers-minus-style = red dim
   line-numbers-zero-style = dimgray
+
+[fetch]
+  prune = true
