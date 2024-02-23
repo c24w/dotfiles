@@ -15,7 +15,7 @@ alias gaa='ga -A && gs'
 
 alias gr='g reset'
 
-alias gc='g commit -v'
+alias gc='g commit'
 alias gcm='gc -m'
 alias gcu='gr --soft HEAD^'
 alias gca='gc --amend'
