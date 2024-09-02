@@ -93,9 +93,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep --smart-case'
 
-Plug 'mustache/vim-mustache-handlebars'
-au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
-
 Plug 'vim-scripts/HTML-AutoCloseTag'
 au FileType mustache so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 
