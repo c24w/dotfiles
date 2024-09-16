@@ -1,3 +1,7 @@
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " Come on Windows
 if has('win32') || has('win64')
   set runtimepath^=~/.vim
@@ -125,13 +129,13 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'atelierbram/Base2Tone-vim'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='Base2Tone_MeadowDark'
 
 call plug#end()
 
@@ -150,11 +154,6 @@ set backspace=indent,eol,start "Allow backspacing over these chars
 
 set nofixendofline
 
-if $COLORTERM == 'gnome-terminal'
-  "Use 256 colours
-  set t_Co=256
-endif
-
 if has('gui_running')
   au GUIEnter * simalt ~x "Maximise
   set guioptions-=m "Remove menu bar
@@ -165,7 +164,7 @@ if has('gui_running')
 endif
 
 "Silence errors so it won't block first-time plugin install with an error
-silent! colorscheme solarized
+silent! colorscheme Base2Tone_MeadowDark
 
 set list "Show whitespace
 set listchars=tab:┆\ ,eol:¬
