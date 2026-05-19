@@ -45,3 +45,4 @@
 
 [branch]
   sort = -committerdate
+  autoSetupRebase = always
