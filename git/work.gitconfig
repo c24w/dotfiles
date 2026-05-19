@@ -3,7 +3,7 @@
   email = 710406+c24w@users.noreply.github.com
 
 [push]
-  default = upstream
+  autoSetupRemote = true
 
 [core]
   autocrlf = false
