@@ -42,3 +42,6 @@
 
 [commit]
   verbose = true
+
+[branch]
+  sort = -committerdate
