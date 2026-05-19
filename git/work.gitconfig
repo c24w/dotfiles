@@ -21,6 +21,7 @@
 
 [rebase]
   autoStash = true
+  autosquash = true
 
 [delta]
   dark = true
