@@ -37,5 +37,8 @@
 [fetch]
   prune = true
 
+[init]
+  defaultBranch = main
+
 [commit]
   verbose = true
